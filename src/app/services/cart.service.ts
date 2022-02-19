@@ -48,8 +48,6 @@ export class CartService {
    * @returns 
    */
   getCart() {
-    const cartItems = [];
-    Object.entries(([key, value]) => cartItems.push(value));
-    return cartItems;
+    return Object.values(this.cart);
   }
 }

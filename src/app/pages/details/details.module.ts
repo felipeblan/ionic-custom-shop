@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DetailsPageRoutingModule } from './details-routing.module';
 
 import { DetailsPage } from './details.page';
+import { BreadcrumbModule } from './components/breadcrumb/breadcrumb.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailsPageRoutingModule
+    DetailsPageRoutingModule,
+    BreadcrumbModule
   ],
   declarations: [DetailsPage]
 })

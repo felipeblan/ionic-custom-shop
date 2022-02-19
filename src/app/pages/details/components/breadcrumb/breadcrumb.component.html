@@ -1,0 +1,22 @@
+<ion-breadcrumbs>
+  <ion-breadcrumb
+    routerLink="/products" routerDirection="back">
+    Products
+    <span slot="separator">
+      <ion-icon name="chevron-forward"></ion-icon>
+    </span>
+  </ion-breadcrumb>
+  <ion-breadcrumb
+    routerLink="/products" 
+    routerDirection="back"
+    [queryParams]="{category: category?.slug }"
+  >
+    {{ category?.title }}
+    <span slot="separator">
+      <ion-icon name="chevron-forward"></ion-icon>
+    </span>
+  </ion-breadcrumb>
+  <ion-breadcrumb>
+    {{ product.title }}
+  </ion-breadcrumb>
+</ion-breadcrumbs>
