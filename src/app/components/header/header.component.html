@@ -5,6 +5,9 @@
     </ion-buttons>
     <ion-title>{{ title }}</ion-title>
     <ion-buttons slot="end">
+      <ion-button (click)="changeDarkMode()">
+        <ion-icon [name]="darkMode ? 'sunny' : 'moon'" slot="icon-only"></ion-icon>
+      </ion-button>
       <ion-button #cartBtnMobile (click)="openCart()">
         <ion-icon slot="icon-only" name="cart"></ion-icon>
         <ion-badge>{{ cartCount }}</ion-badge>
@@ -63,6 +66,9 @@
   </ion-col>
   <!-- Cart icon -->
   <ion-col size="3" class="ion-text-right">
+    <ion-button fill="clear" color="dark" (click)="changeDarkMode()">
+      <ion-icon [name]="darkMode ? 'sunny' : 'moon'"slot="icon-only"></ion-icon>
+    </ion-button>
     <ion-button fill="clear" color="dark" #cartBtnWeb (click)="openCart()">
       <ion-icon slot="icon-only" name="cart"></ion-icon>
       <ion-badge>{{ cartCount }}</ion-badge>

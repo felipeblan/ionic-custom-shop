@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   @ViewChild('productBtn', { read: ElementRef }) productBtn: ElementRef;
   @ViewChild('cartBtnWeb', { read: ElementRef }) cartBtnWeb: ElementRef;
   cartCount: number = 0;
+  darkMode : boolean = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   constructor(
     private animationCtrl: AnimationController,
@@ -32,6 +33,18 @@ export class HeaderComponent implements OnInit {
       }
       this.cartCount = +cartCount;
     });
+
+    this.toggleDarkMode(this.darkMode);
+
+    const prefersDark: any = window.matchMedia('(prefers-color-scheme: dark)');
+    prefersDark.addEventListener('change', (e) => {
+      const dark = e.matches ? true : false;
+      if (this.darkMode != dark) {
+        this.darkMode = !this.darkMode;
+        this.toggleDarkMode(this.darkMode);
+      }
+    });
+
   }
 
   hideDropdown(event: any) {
@@ -85,5 +98,18 @@ export class HeaderComponent implements OnInit {
       cssClass: 'custom-modal',
     });
     await modal.present();
+  }
+
+  /**
+   * Toggle dark mode
+   * @param enable 
+   */
+  toggleDarkMode(enable: boolean) {
+    document.body.classList.toggle('dark', enable);
+  }
+
+  changeDarkMode() {
+    this.darkMode = !this.darkMode;
+    document.body.classList.toggle('dark', this.darkMode);
   }
 }
