@@ -5,6 +5,15 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
+  },
+  {
+    path: '404',
+    loadChildren: () => import('./pages/error/error.module').then( m => m.ErrorPageModule)
+  },
+  {
+    path: "**",
+    redirectTo: "404",
+    pathMatch: "full"
   }
 ];
 
